@@ -150,12 +150,30 @@
   .video-tab.active{ background:var(--maroon-bright); border-color:var(--maroon-bright); color:var(--cream); }
 
   /* ---- extra link tag (e.g. "French Vocal Audio") ---- */
-  .extra-link{ display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.03em; text-transform:uppercase; color:var(--maroon-bright); text-decoration:none; border-bottom:1px dotted var(--maroon-bright); }
-  .extra-link:hover{ color:var(--cream); border-bottom-color:var(--cream); }
+  .extra-link{ display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.03em; text-transform:uppercase; color:var(--maroon-bright); text-decoration:none; }
+  .extra-link:hover{ color:var(--cream); }
+
+  /* ---- artist rating widget ---- */
+  .rating-row{ display:flex; align-items:center; flex-wrap:wrap; gap:9px; margin-top:16px; padding-top:16px; border-top:1px solid var(--line); }
+  .rating-label{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.03em; text-transform:uppercase; color:var(--cream-dim); margin-right:2px; }
+  .rating-btn{ display:inline-flex; align-items:center; justify-content:center; color:var(--cream-dim); background:var(--ink-soft); border:1px solid var(--line); border-radius:20px; padding:9px 16px; cursor:pointer; transition:border-color 0.2s ease, background 0.2s ease, color 0.2s ease; }
+  .rating-btn:hover{ border-color:var(--maroon-bright); color:var(--cream); }
+  .rating-btn.selected{ background:var(--maroon-bright); border-color:var(--maroon-bright); color:var(--cream); }
+  .rating-comment-toggle{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.03em; text-transform:uppercase; color:var(--cream-dim); background:none; border:1px solid var(--line); border-radius:20px; padding:8px 14px; cursor:pointer; transition:border-color 0.2s ease, color 0.2s ease; }
+  .rating-comment-toggle:hover, .rating-comment-toggle.open{ border-color:var(--maroon-bright); color:var(--cream); }
+  .rating-comment-box{ display:none; margin-top:12px; width:100%; }
+  .rating-comment-box.open{ display:block; }
+  .rating-comment-box textarea{ width:100%; background:var(--ink-soft); border:1px solid var(--line); border-radius:6px; padding:10px 12px; color:var(--cream); font-family:'Quicksand',sans-serif; font-size:0.88rem; resize:vertical; min-height:60px; }
+  .rating-comment-box textarea:focus{ outline:none; border-color:var(--maroon-bright); }
+  .rating-comment-send{ margin-top:8px; background:var(--maroon-bright); border:none; border-radius:20px; padding:8px 16px; color:var(--cream); font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.04em; text-transform:uppercase; cursor:pointer; transition:background 0.2s ease; }
+  .rating-comment-send:hover{ background:var(--maroon); }
+  .rating-thanks{ font-size:11px; color:var(--green-bright); margin-top:8px; font-family:'IBM Plex Mono',monospace; letter-spacing:0.03em; text-transform:uppercase; }
 
   /* ---- next steps / proposal terms ---- */
+  .partnership-box{ background:var(--card); border:1px solid var(--line); border-radius:8px; padding:26px 30px; }
+  .partnership-box + .partnership-box{ margin-top:18px; }
   .info-block{ margin:0; scroll-margin-top:90px; }
-  .info-block + .info-block{ margin-top:34px; }
+  .info-block + .info-block{ margin-top:18px; }
   .info-block h3{ font-size:1.4rem; margin:0 0 16px; display:flex; align-items:center; gap:10px; }
   .info-block h3 svg{ flex-shrink:0; }
   ul.next-steps-list{ list-style:none; margin:0; padding:0; }
@@ -163,8 +181,6 @@
   ul.next-steps-list .vinyl-bullet{ margin-top:4px; }
 
   /* ---- about us (40th-style: copy + photo grid) ---- */
-  .section-heading{ font-family:'Rader','Quicksand',sans-serif; font-weight:700; font-size:1.4rem; margin:0 0 20px; display:flex; align-items:center; gap:10px; }
-  .section-heading svg{ flex-shrink:0; }
   .about-grid{ display:grid; grid-template-columns:1fr 170px; gap:30px; align-items:center; margin-bottom:26px; }
   .about-grid .about{ font-size:0.94rem; color:var(--cream-dim); margin:0; }
   .about-photo-col{ display:flex; flex-direction:column; align-items:center; gap:10px; }
@@ -173,7 +189,7 @@
   .about-name-row h4{ font-family:'Rader','Quicksand',sans-serif; font-size:0.98rem; margin:0; color:var(--cream); font-weight:700; }
   @media (max-width:700px){ .about-grid{ grid-template-columns:1fr; text-align:center; } .about-photo-col{ order:-1; } }
 
-  .contact-box{ background:var(--maroon-deep); border-radius:6px; padding:20px 22px; max-width:560px; }
+  .contact-box{ background:var(--maroon-deep); border-radius:6px; padding:24px 28px; }
   .contact-note{ font-family:'Quicksand',sans-serif; font-size:0.92rem; color:var(--cream); margin:0 0 14px; }
   .contact-links{ display:flex; flex-wrap:wrap; gap:8px 22px; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.02em; color:var(--cream); }
   .contact-links a{ color:var(--cream); text-decoration:none; border-bottom:1px solid rgba(251,239,210,0.4); }
@@ -191,8 +207,7 @@
   .lead-gate{ position:fixed; inset:0; z-index:999; background:var(--ink); display:flex; align-items:center; justify-content:center; padding:24px; }
   .lead-gate-box{ max-width:400px; width:100%; text-align:center; }
   .lead-gate-box .mark{ font-size:14px; margin-bottom:22px; }
-  .lead-gate-box h3{ font-size:1.5rem; margin:0 0 10px; }
-  .lead-gate-box p{ color:var(--cream-dim); font-size:0.92rem; margin:0 0 26px; }
+  .lead-gate-box h3{ font-size:1.5rem; margin:0 0 26px; }
   .lead-form{ display:flex; flex-direction:column; gap:12px; }
   .lead-form input{ background:var(--card); border:1px solid var(--line); border-radius:6px; padding:13px 15px; color:var(--cream); font-family:'Quicksand',sans-serif; font-size:0.94rem; }
   .lead-form input::placeholder{ color:var(--cream-dim); }
@@ -208,7 +223,6 @@
   <div class="lead-gate-box">
     <div class="mark">MIRO SOUNDS</div>
     <h3>Welcome</h3>
-    <p>Please pop in a few details to view this proposal.</p>
     <form class="lead-form" id="leadForm">
       <input type="text" id="leadFirstName" placeholder="First name" required autocomplete="given-name">
       <input type="text" id="leadLastName" placeholder="Last name" required autocomplete="family-name">
@@ -262,7 +276,7 @@
   <ul class="vinyl-list" style="margin-bottom:26px;">
     <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span><strong style="color:var(--cream);">Flexible line-ups:</strong> Solo, duo or trio formats available depending on the artist and desired feel.</span></li>
     <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span><strong style="color:var(--cream);">Styling:</strong> Artists can be styled to complement the event aesthetic and dress code.</span></li>
-    <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span><strong style="color:var(--cream);">Repertoire:</strong> Additional tracks can be requested and learned, subject to suitability, fee and preparation time.</span></li>
+    <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span><strong style="color:var(--cream);">Repertoire:</strong> Artists have extensive, adaptable repertoires, with additional tracks available on request, subject to suitability, fee and preparation time.</span></li>
     <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span><strong style="color:var(--cream);">Set-up:</strong> Acoustic and minimal set-ups available where appropriate, keeping the presentation discreet and self contained.</span></li>
     <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span><strong style="color:var(--cream);">Roaming:</strong> Where appropriate, artists can perform roaming, moving naturally through the space rather than from a fixed position.</span></li>
   </ul>
@@ -271,31 +285,31 @@
 
   <div class="divider" aria-hidden="true"><span class="wave"><span class="bar" style="height:10px;"></span><span class="bar" style="height:18px;"></span><span class="bar" style="height:26px;"></span><span class="bar" style="height:14px;"></span><span class="bar" style="height:22px;"></span><span class="bar" style="height:10px;"></span><span class="bar" style="height:18px;"></span><span class="bar" style="height:26px;"></span><span class="bar" style="height:14px;"></span><span class="bar" style="height:10px;"></span></span></div>
 
-  <div class="info-block" id="next-steps">
-    <h2 class="section-title">Partnership</h2>
-    <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B7314F" stroke-width="2"><path d="M4 12h14M13 6l6 6-6 6"/></svg> Next Steps</h3>
-    <ul class="next-steps-list">
-      <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>Please let me know if you&rsquo;d like to explore any of the artists further, or if I can help with any other music moments across the event.</span></li>
-      <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>If helpful, we can also work more closely with you and the client on the wider musical direction.</span></li>
-      <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>Artists presented as On Hold are available according to their work calendars at the time of this proposal, subject to change and reconfirmation.</span></li>
-      <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>A 50% deposit is required to secure the selected artist and date.</span></li>
-    </ul>
+  <h2 class="section-title" id="next-steps">Partnership</h2>
+  <div class="partnership-box">
+      <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B7314F" stroke-width="2"><path d="M4 12h14M13 6l6 6-6 6"/></svg> Next Steps</h3>
+      <ul class="next-steps-list">
+        <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>Please let me know if you&rsquo;d like to explore any of the artists further, or if I can help with any other music moments across the event.</span></li>
+        <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>If helpful, we can also work more closely with you and the client on the wider musical direction.</span></li>
+        <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>Artists presented as On Hold are available according to their work calendars at the time of this proposal, subject to change and reconfirmation.</span></li>
+        <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>A 50% deposit is required to secure the selected artist and date.</span></li>
+      </ul>
   </div>
 
-  <div class="info-block">
-    <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B7314F" stroke-width="1.8"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg> Proposal Terms</h3>
-    <ul class="next-steps-list">
-      <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>This proposal and any recommendations shared are exclusively for the purpose of evaluating entertainment options for this event.</span></li>
-      <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>The proposal may be shared internally for planning purposes, but should not be shared externally with artists, agencies or unrelated third parties.</span></li>
-      <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>Any artists or suppliers introduced or recommended by Miro Sounds, whether within this proposal or otherwise, must be booked through Miro Sounds unless otherwise agreed in writing.</span></li>
-      <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>If an artist or supplier introduced by Miro Sounds is subsequently approached or booked directly, Miro Sounds reserves the right to charge an appropriate fee.</span></li>
-    </ul>
+  <div class="partnership-box">
+      <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B7314F" stroke-width="1.8"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg> Proposal Terms</h3>
+      <ul class="next-steps-list">
+        <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>This proposal and any recommendations shared are exclusively for the purpose of evaluating entertainment options for this event.</span></li>
+        <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>The proposal may be shared internally for planning purposes, but should not be shared externally with artists, agencies or unrelated third parties.</span></li>
+        <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>Any artists or suppliers introduced or recommended by Miro Sounds, whether within this proposal or otherwise, must be booked through Miro Sounds unless otherwise agreed in writing.</span></li>
+        <li><svg class="vinyl-bullet" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="#B7314F" opacity="0.9"/><circle cx="12" cy="12" r="6.8" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="#150A0D" stroke-width="0.7" opacity="0.5"/><circle cx="12" cy="12" r="2.1" fill="#FBEFD2"/></svg><span>If an artist or supplier introduced by Miro Sounds is subsequently approached or booked directly, Miro Sounds reserves the right to charge an appropriate fee.</span></li>
+      </ul>
   </div>
 
   <div class="divider" aria-hidden="true"><span class="wave"><span class="bar" style="height:10px;"></span><span class="bar" style="height:18px;"></span><span class="bar" style="height:26px;"></span><span class="bar" style="height:14px;"></span><span class="bar" style="height:22px;"></span><span class="bar" style="height:10px;"></span><span class="bar" style="height:18px;"></span><span class="bar" style="height:26px;"></span><span class="bar" style="height:14px;"></span><span class="bar" style="height:10px;"></span></span></div>
 
-  <footer id="about">
-    <h3 class="section-heading"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B7314F" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7.7h.01" stroke-linecap="round" stroke-width="2.4"/><path d="M10.7 11h1.3v5.3" stroke-linecap="round"/></svg> About Us</h3>
+  <footer>
+    <h2 class="section-title" id="about">About Us</h2>
     <div class="about-grid">
       <p class="about">We curate and coordinate exceptional music for unforgettable events. From the familiar to the fresh, the refined to the raw, we find the perfect pairing of sound and setting for every occasion.<br><br>
       Drawing on 15 years of experience across music, events and sound curation, we work with a trusted global network of artists, sourcing and handpicking the right talent for each event &ndash; without the limitations of a fixed roster, ensuring every experience feels genuinely tailored.<br><br>
@@ -327,9 +341,9 @@
 
 <script>
 /* ============================================================
-   GA4 Measurement ID: G-RVY1VZ5HS2 (shared Miro Sounds property)
+   GA4 Measurement ID: G-57DY79XJ4J
    ============================================================ */
-const GA_MEASUREMENT_ID = 'G-RVY1VZ5HS2';
+const GA_MEASUREMENT_ID = 'G-57DY79XJ4J';
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
 (function(){
@@ -345,14 +359,45 @@ function trackEvent(name, params){
   gtag('event', name, params);
 }
 
+/* ============================================================
+   SUBMIT_ENDPOINT: single webhook used for both the lead-gate
+   form and artist ratings/comments below. Point this at a
+   Zapier/Make "Catch Webhook -> Create Notion database item"
+   step (or similar relay) to get submissions into Notion --
+   a static page can't call the Notion API directly.
+   Each POST body includes a "type" field ("lead_gate" or
+   "artist_rating") so the relay/Notion automation can route it.
+   ============================================================ */
+const SUBMIT_ENDPOINT = ''; // TODO Rory: add your webhook relay URL here
+
+function submitToEndpoint(payload){
+  if (!SUBMIT_ENDPOINT) return;
+  fetch(SUBMIT_ENDPOINT, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(payload)
+  }).catch(function(){});
+}
+
+const LEAD_STORAGE_KEY = 'miro_lead_bhb';
+
+function getVisitorName(){
+  try {
+    const raw = localStorage.getItem(LEAD_STORAGE_KEY);
+    if (raw) {
+      const d = JSON.parse(raw);
+      return [d.firstName, d.lastName].filter(Boolean).join(' ');
+    }
+  } catch(e){}
+  return '';
+}
+
 /* ---- lead capture gate ---- */
 (function(){
-  const STORAGE_KEY = 'miro_lead_bhb';
-  const LEAD_ENDPOINT = ''; // TODO Rory: add a Formspree (or similar) endpoint URL here to receive submissions
   const gate = document.getElementById('leadGate');
   const form = document.getElementById('leadForm');
   let existing = null;
-  try { existing = localStorage.getItem(STORAGE_KEY); } catch(e){}
+  try { existing = localStorage.getItem(LEAD_STORAGE_KEY); } catch(e){}
   if (existing) {
     gate.style.display = 'none';
   } else {
@@ -365,15 +410,9 @@ function trackEvent(name, params){
     const lastName = document.getElementById('leadLastName').value.trim();
     const business = document.getElementById('leadBusiness').value.trim();
     if (!firstName || !lastName || !business) return;
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({firstName:firstName,lastName:lastName,business:business,ts:Date.now()})); } catch(err){}
+    try { localStorage.setItem(LEAD_STORAGE_KEY, JSON.stringify({firstName:firstName,lastName:lastName,business:business,ts:Date.now()})); } catch(err){}
     trackEvent('lead_gate_submit', { business: business });
-    if (LEAD_ENDPOINT) {
-      fetch(LEAD_ENDPOINT, {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({firstName:firstName,lastName:lastName,business:business})
-      }).catch(function(){});
-    }
+    submitToEndpoint({ type:'lead_gate', first_name:firstName, last_name:lastName, business:business, ts:Date.now() });
     gate.style.display = 'none';
     document.body.style.overflow = '';
   });
@@ -388,6 +427,9 @@ const IMG_ALICIA = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEB
 const IG_ICON = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>`;
 const YT_ICON = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10.2 9.4v5.2l4.8-2.6z" fill="currentColor" stroke="none"/></svg>`;
 const PLAY_ICON = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="#FBEFD2"/></svg>`;
+const THUMBS_UP_ICON = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>`;
+const THUMBS_DOWN_ICON = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>`;
+const NEUTRAL_ICON = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="0.6" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="0.6" fill="currentColor" stroke="none"/><path d="M8.5 15h7"/></svg>`;
 
 const ARTISTS = [
   {
@@ -475,6 +517,21 @@ function videoGalleryHTML(a, idx){
   </div>`;
 }
 
+function ratingRowHTML(a){
+  return `<div class="rating-row" data-rating-artist="${a.name}">
+    <span class="rating-label">Your take:</span>
+    <button type="button" class="rating-btn" data-rating="up" aria-label="Thumbs up">${THUMBS_UP_ICON}</button>
+    <button type="button" class="rating-btn" data-rating="mid" aria-label="Not sure">${NEUTRAL_ICON}</button>
+    <button type="button" class="rating-btn" data-rating="down" aria-label="Thumbs down">${THUMBS_DOWN_ICON}</button>
+    <button type="button" class="rating-comment-toggle">Comment</button>
+    <div class="rating-comment-box">
+      <textarea placeholder="Add a comment..." rows="3"></textarea>
+      <br><button type="button" class="rating-comment-send">Send</button>
+      <div class="rating-thanks" style="display:none;">Thanks for the feedback</div>
+    </div>
+  </div>`;
+}
+
 function artistCard(a, idx){
   const extraLink = a.extraLink ? `<a class="extra-link" href="${a.extraLink.url}" target="_blank" rel="noopener">${a.extraLink.label} &rarr;</a>` : '';
   return `<div class="artist-card" id="artist-${slug(a.name)}" data-artist-section>
@@ -487,10 +544,51 @@ function artistCard(a, idx){
     <p class="artist-meta"><span class="avail">${a.availability}</span><br><strong>Fee:</strong> ${a.fee}</p>
     ${videoGalleryHTML(a, idx)}
     ${extraLink}
+    ${ratingRowHTML(a)}
   </div>`;
 }
 
 document.getElementById('artistGrid').innerHTML = ARTISTS.map(artistCard).join('');
+
+/* ---- wire up each artist's rating widget ---- */
+document.querySelectorAll('.rating-row').forEach(function(row){
+  const artistName = row.dataset.ratingArtist;
+  const btns = row.querySelectorAll('.rating-btn');
+  const commentToggle = row.querySelector('.rating-comment-toggle');
+  const commentBox = row.querySelector('.rating-comment-box');
+  const textarea = row.querySelector('textarea');
+  const sendBtn = row.querySelector('.rating-comment-send');
+  const thanks = row.querySelector('.rating-thanks');
+  let selectedRating = null;
+
+  function sendRating(rating, comment){
+    trackEvent('artist_rating', { artist_name: artistName, rating: rating, has_comment: !!comment });
+    submitToEndpoint({ type:'artist_rating', artist: artistName, rating: rating, comment: comment || '', visitor_name: getVisitorName(), ts: Date.now() });
+    thanks.style.display = 'block';
+  }
+
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedRating = btn.dataset.rating;
+      sendRating(selectedRating, textarea.value.trim());
+    });
+  });
+
+  commentToggle.addEventListener('click', function(){
+    const open = commentBox.classList.toggle('open');
+    commentToggle.classList.toggle('open', open);
+    if (open) textarea.focus();
+  });
+
+  sendBtn.addEventListener('click', function(){
+    const comment = textarea.value.trim();
+    if (!comment && !selectedRating) return;
+    sendRating(selectedRating || 'comment_only', comment);
+    textarea.value = '';
+  });
+});
 
 /* ---- wire up each video gallery: facade click-to-play + tab switching ---- */
 ARTISTS.forEach(function(a, idx){
@@ -499,13 +597,33 @@ ARTISTS.forEach(function(a, idx){
   let activeIndex = 0;
   const origin = encodeURIComponent(location.origin);
 
+  /* pre-resolve a thumbnail for every video after the first --
+     the first video keeps the artist photo as its facade image */
+  a.videos.forEach(function(v, vi){
+    if (vi === 0) return;
+    if (v.yt) {
+      v.thumb = 'https://img.youtube.com/vi/' + v.yt.id + '/hqdefault.jpg';
+    } else if (v.vimeoId) {
+      fetch('https://vimeo.com/api/oembed.json?url=' + encodeURIComponent('https://vimeo.com/' + v.vimeoId))
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          if (data && data.thumbnail_url) {
+            v.thumb = data.thumbnail_url;
+            if (activeIndex === vi) renderFacade();
+          }
+        }).catch(function(){});
+    }
+  });
+
   function renderFacade(){
+    const v = a.videos[activeIndex];
+    const bgImage = activeIndex === 0 ? a.image : (v.thumb || a.image);
     frame.className = 'video-frame yt-facade';
     frame.setAttribute('role', 'button');
     frame.setAttribute('tabindex', '0');
-    frame.setAttribute('aria-label', 'Play ' + a.name + ' video \u2013 ' + a.videos[activeIndex].label);
+    frame.setAttribute('aria-label', 'Play ' + a.name + ' video \u2013 ' + v.label);
     frame.innerHTML =
-      '<div class="facade-bg" style="background-image:url(' + a.image + ')"></div>' +
+      '<div class="facade-bg" style="background-image:url(' + bgImage + ')"></div>' +
       '<div class="facade-tint"></div>' +
       '<div class="facade-dim"></div>' +
       '<span class="play-btn">' + PLAY_ICON + '</span>';
